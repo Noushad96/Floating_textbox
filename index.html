@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>animate TextBox</title>
+        <style>
+            .container{
+                position: absolute;
+                width: 300px;
+                padding: 40px;
+                /* background: #bbb; */
+                border-radius: 10px;
+                
+            }
+            .container .user{
+                position: relative;
+            }
+            .container .user input{
+                width: 100%;
+                /* background:transparent; */
+                /* border: none; */
+                border-color: black;
+                /* border-bottom: 2px solid red; */
+                /* outline: none; */
+                padding: 10px 0;
+                padding-left: 10px;
+                font-size: 20px;
+                border-radius: 5px;
+                outline-color: blue;
+            }
+  
+            .container .user label{
+                letter-spacing: 2px;
+                position: absolute;
+                top: 0;
+                left: 10px;
+                padding: 0 0 0 0;
+                margin: 10px 0 0 0;
+                border-radius: 4px;
+                font-size: 18px;
+                color: rgb(12, 12, 12);  /* placeholder text color nhi doge to default black color lega*/
+                /* background-color: red; */
+                pointer-events: none;    /*jaha placeholder text hoga wha bhi click kr sakte hai*/
+                transition: 0.5s ease;
+            }
+            .container .user input:focus{
+                border-color: blue;
+                border-width:  5px;
+                border: 2px;
+                border: none;
+            }
+            /* focus krte hi text uper chala jaeyga */
+            .container .user input:focus~label,
+            .container .user input:valid~label    /*ye line username ko hold kr k rakhega jabtak input me text rahega  */
+            /* .container .user input:not(:focus) valid~label */  /*required is valid*/
+            {
+               top: -20px;
+               color: black; /* text color after clicking out of textbox */ 
+               background-color: white;
+               font-size: 20px; 
+               left: 10px;
+               border: 20px;
+            }
+            /* focus hoga to text blue rahega else black hoga */
+            .container .user input:focus~label,     
+            .container .user input:not(:focus) valid~label   /*text box khali means not valid then color blue*/
+            {
+                color: blue;  /* text color after clicking in textbox */
+            }
+            
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="user">
+                <!-- required imp. hai condition k liye  required=must be filed - valid else not valid-->
+                <input type="text" name="" required=""> 
+                <label for="">Username</label>
+
+            </div>
+        </div>
+    </body>
+</html>
